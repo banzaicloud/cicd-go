@@ -1,6 +1,8 @@
 package cicd
 
-import "net/http"
+import (
+	"net/http"
+)
 
 // Client is used to communicate with a CI/CD server.
 type Client interface {
@@ -40,7 +42,7 @@ type Client interface {
 	RepoListOpts(bool, bool) ([]*Repo, error)
 
 	// RepoPost activates a repository.
-	RepoPost(string, string) (*Repo, error)
+	RepoPost(string, string, string) (*Repo, error)
 
 	// RepoPatch updates a repository.
 	RepoPatch(string, string, *RepoPatch) (*Repo, error)

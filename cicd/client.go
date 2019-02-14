@@ -195,9 +195,10 @@ func (c *client) RepoListOpts(sync, all bool) ([]*Repo, error) {
 }
 
 // RepoPost activates a repository.
-func (c *client) RepoPost(owner string, name string) (*Repo, error) {
+func (c *client) RepoPost(owner string, name string, org string) (*Repo, error) {
 	out := new(Repo)
 	uri := fmt.Sprintf(pathRepo, c.addr, owner, name)
+	uri += "?org=" + org
 	err := c.post(uri, nil, out)
 	return out, err
 }
